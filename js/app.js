@@ -1,0 +1,1 @@
+/* https://webetu.iutnc.univ-lorraine.fr/www/canals5/photobox/doc */
