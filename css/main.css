@@ -69,4 +69,7 @@ nav #next {
 
 .vignette {
     display: inline-block;
+    border: 1px solid;
+    padding: 5px;
+    margin-bottom: 10px;
 }
