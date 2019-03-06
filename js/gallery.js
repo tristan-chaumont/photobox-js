@@ -22,7 +22,7 @@ let load = () => {
 * Méthode privée permettant d'insérer les données dans le dom
 */
 function insererDom(donnees){
-    let  i = 0;
+    let  i = idGalerie*6-6;
     let gal = document.querySelector("#photobox-gallery");
     while(i<6*idGalerie && i < donnees.length){
         let image = donnees[i];

@@ -13,7 +13,7 @@ let load;
 export function start() {
     photoloader.init("https://webetu.iutnc.univ-lorraine.fr");
     photoloader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12");
-    galery.init("1");
+    galery.init("2");
     galery.load();
     load = document.querySelector("#load_gallery");
     load.addEventListener("click", () => {
