@@ -1,6 +1,7 @@
 'use strict'
 import * as loader from './photoloader.js';
-var idGalerie;
+//id de la page de la galerie à partir de 1 
+let idGalerie;
 
 /**
 * Méthode d'initialisation qui prend l'identifiant de la galerie
@@ -13,7 +14,7 @@ let init = (id) => {
 * Méthode permettant de charger les données dans le dom
 */
 let load = () => {
-    
+    console.log(loader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12"));
 }
 
 /**
