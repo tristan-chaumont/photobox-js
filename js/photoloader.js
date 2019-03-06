@@ -1,7 +1,6 @@
 'use strict'
 
 let serveur;
-
 /*
 * initialise la variable serveur avec l'adresse du serveur hébergeant l'api
 */
