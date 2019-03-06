@@ -3,6 +3,7 @@
 'use strict'
 
 import * as photoloader from './photoloader.js';
+import * as galery from './gallery.js';
 
 /*
 * méthode lancée lors du chargement de la page, initialise l'adresse du serveur hébergeant l'api

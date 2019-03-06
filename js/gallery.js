@@ -26,5 +26,5 @@ function insererDom(donnees){
 
 export default{
     init : init;
-    init : load;
+    load : load;
 }
