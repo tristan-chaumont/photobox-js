@@ -14,14 +14,34 @@ let init = (id) => {
 * Méthode permettant de charger les données dans le dom
 */
 let load = () => {
-    let promesse = loader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12"); 
+    let promesse = loader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12");
+    promesse.then((rep) => insererDom(rep.data.photos));
 }
 
 /**
 * Méthode privée permettant d'insérer les données dans le dom
 */
 function insererDom(donnees){
-    
+    let  i = 0;
+    let gal = document.querySelector("#photobox-gallery");
+    while(i<6*idGalerie && i < donnees.length){
+        let image = donnees[i];
+        console.log(image);
+        let div = document.createElement("DIV");
+        let divNom = document.createElement("DIV");
+        let texte = document.createTextNode(""+image.photo.file);
+        divNom.appendChild(texte);
+        div.classList.add("vignette");
+        let img  =document.createElement("IMG");
+        img.setAttribute("data-img","https://webetu.iutnc.univ-lorraine.fr"+image.photo.original.href);
+        img.setAttribute("data-uri","https://webetu.iutnc.univ-lorraine.fr"+image.links.self.href);
+        console.log(image.photo.thumbnail.href);
+        img.setAttribute("src","https://webetu.iutnc.univ-lorraine.fr"+image.photo.thumbnail.href);
+        div.appendChild(img);
+        div.appendChild(divNom);
+        gal.appendChild(div);
+        i++;
+    }
 }
 
 export default{
