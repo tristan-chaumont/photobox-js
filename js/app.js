@@ -4,6 +4,11 @@
 
 import * as photoloader from './photoloader.js';
 
+/*
+* méthode lancée lors du chargement de la page, initialise l'adresse du serveur hébergeant l'api
+* et charge la liste des objets de l'uri
+*/
 export function start() {
-    photoloader.loadObjects("https://webetu.iutnc.univ-lorraine.fr/www/canals5/photobox/photos/?offset=8&size=12");
+    photoloader.init("https://webetu.iutnc.univ-lorraine.fr");
+    photoloader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12");
 }
