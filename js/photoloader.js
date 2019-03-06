@@ -1,17 +1,17 @@
 'use strict'
 
+var serveur;
+
 let init = (server_url) => {
-    return axios.get(server_url);
+    serveur = server_url;
+}
+
+let show_erreur()=>{
+    console.log("Erreur");
 }
 
 let loadObjects = (url) => {
-    let p = axios.get(url)
-                 .then((data) => {
-                     return data;
-                 })
-                 .catch((error) => {
-                    console.log('data transfer error : ' + error);
-                 });
+    return axios.get(serveur+url).catch(show_erreur);
 }
 
 export default {
