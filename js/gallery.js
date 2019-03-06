@@ -1,5 +1,5 @@
 'use strict'
-import * as loader from './photoloader.js';
+import loader from './photoloader.js';
 //id de la page de la galerie à partir de 1 
 let idGalerie;
 
@@ -14,7 +14,7 @@ let init = (id) => {
 * Méthode permettant de charger les données dans le dom
 */
 let load = () => {
-    console.log(loader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12"));
+    let promesse = loader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12"); 
 }
 
 /**
@@ -25,6 +25,6 @@ function insererDom(donnees){
 }
 
 export default{
-    init : init;
-    load : load;
+    init : init,
+    load : load
 }

@@ -1,3 +1,6 @@
-import * as start from './app.js';
+import * as app from './app.js';
 
-window.addEventListener('load', start.start);
+window.addEventListener("load", () => {
+    console.log("cc");
+    app.start();
+});
