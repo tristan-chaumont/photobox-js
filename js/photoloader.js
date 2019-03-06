@@ -4,14 +4,14 @@ let serveur;
 /*
 * initialise la variable serveur avec l'adresse du serveur hébergeant l'api
 */
-let init = (server_url) => {
+let init = function(server_url){
     serveur = server_url;
 }
 
 /*
 * méthode d'affichage d'une erreur
 */
-let show_erreur()=>{
+let show_erreur = function(){
     console.log("Erreur de chargement");
 }
 

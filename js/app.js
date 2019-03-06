@@ -1,8 +1,7 @@
 /* https://webetu.iutnc.univ-lorraine.fr/www/canals5/photobox/doc */
 
-'use strict'
-
-import * as photoloader from './photoloader.js';
+import photoloader from './photoloader.js';
+import galery from './gallery.js';
 
 let load;
 
@@ -14,8 +13,11 @@ let load;
 export function start() {
     photoloader.init("https://webetu.iutnc.univ-lorraine.fr");
     photoloader.loadObjects("/www/canals5/photobox/photos/?offset=8&size=12");
+    galery.init("1");
+    galery.load();
     load = document.querySelector("#load_gallery");
     load.addEventListener("click", () => {
          
     });
+    
 }
