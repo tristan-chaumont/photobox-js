@@ -1,5 +1,6 @@
 'use strict'
 import loader from './photoloader.js';
+import lightbox from './lightbox.js';
 //id de la page de la galerie à partir de 1 
 let idGalerie;
 
@@ -29,7 +30,7 @@ function insererDom(donnees){
         console.log(image);
         let div = document.createElement("DIV");
         let divNom = document.createElement("DIV");
-        let texte = document.createTextNode(""+image.photo.file);
+        let texte = document.createTextNode("data-title"+image.photo.titre);
         divNom.appendChild(texte);
         div.classList.add("vignette");
         let img  =document.createElement("IMG");
@@ -42,6 +43,8 @@ function insererDom(donnees){
         gal.appendChild(div);
         i++;
     }
+    
+    lightbox.lightbox_overview();
 }
 
 export default{
