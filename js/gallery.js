@@ -30,13 +30,13 @@ function insererDom(donnees){
         console.log(image);
         let div = document.createElement("DIV");
         let divNom = document.createElement("DIV");
-        divNom.setAttribute("id", "title_img");
         let texte = document.createTextNode(image.photo.titre);
         divNom.appendChild(texte);
         div.classList.add("vignette");
         let img  =document.createElement("IMG");
         img.setAttribute("data-img","https://webetu.iutnc.univ-lorraine.fr"+image.photo.original.href);
         img.setAttribute("data-uri","https://webetu.iutnc.univ-lorraine.fr"+image.links.self.href);
+        img.setAttribute("data-title", image.photo.titre);
         console.log(image.photo.thumbnail.href);
         img.setAttribute("src","https://webetu.iutnc.univ-lorraine.fr"+image.photo.thumbnail.href);
         div.appendChild(img);
