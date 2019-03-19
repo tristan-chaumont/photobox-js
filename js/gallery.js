@@ -61,6 +61,7 @@ function insererDom(donnees){
         let img  =document.createElement("IMG");
         img.setAttribute("data-img","https://webetu.iutnc.univ-lorraine.fr"+image.photo.original.href);
         img.setAttribute("data-uri","https://webetu.iutnc.univ-lorraine.fr"+image.links.self.href);
+        img.setAttribute("data-title", image.photo.titre);
         img.setAttribute("src","https://webetu.iutnc.univ-lorraine.fr"+image.photo.thumbnail.href);
         div.appendChild(img);
         div.appendChild(divNom);

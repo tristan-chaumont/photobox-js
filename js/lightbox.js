@@ -3,16 +3,15 @@ https://www.blogduwebdesign.com/Tutoriel-make-simple-lightbox-minimaliste-javasc
 */
 
 let lightbox_overview = () => {
-    $(".vignette img").on("click", function() {
+    $(".vignette").on("click", function(event) {
         let $gallery = $('#gallery');
-        let $vignette = $(this);
+        let $vignette = $(event.target);
         let $lightbox_container = $("<div id='lightbox_container'>").css("display", "none");
         let $image = $vignette.data("img");
-        let $title = $vignette.data("titre")
-        
+        let $title = $vignette.data("title");   
         let lightbox_div = `<div id='lightbox'>
                                 <div id='lightbox-head'>
-                                    <p id='lightbox_close'>X</p>'
+                                    <p id='lightbox_close'>X</p>
                                     <h1 id='lightbox_title'>${$title}</h1>
                                 </div>
                                 <div id="lightbox-img">
@@ -33,6 +32,18 @@ let lightbox_overview = () => {
             })
         });        
     })
+}
+
+let create_lightbox = (title, image) => {
+    return `<div id='lightbox'>
+               <div id='lightbox-head'>
+                   <p id='lightbox_close'>X</p>'
+                   <h1 id='lightbox_title'>${title}</h1>
+               </div>
+               <div id="lightbox-img">
+                   <img id='lightbox_full_img' src='${image}'>
+               </div>
+           </div>`;
 }
 
 export default {
