@@ -30,7 +30,7 @@ function insererDom(donnees){
         console.log(image);
         let div = document.createElement("DIV");
         let divNom = document.createElement("DIV");
-        let texte = document.createTextNode("data-title"+image.photo.titre);
+        let texte = document.createTextNode(image.photo.titre);
         divNom.appendChild(texte);
         div.classList.add("vignette");
         let img  =document.createElement("IMG");

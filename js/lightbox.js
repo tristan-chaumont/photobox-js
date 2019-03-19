@@ -8,11 +8,11 @@ let lightbox_overview = () => {
         let $vignette = $(this);
         let $lightbox_container = $("<div id='lightbox_container'>").css("display", "none");
         let $image = $vignette.data("img");
-        let $title = $vignette.data("title")
+        let $title = $vignette.data("titre")
         
         let lightbox_div = `<div id='lightbox'>
                                 <div id='lightbox-head'>
-                                    <p id='lightbox_close'>[X]</p>'
+                                    <p id='lightbox_close'>X</p>'
                                     <h1 id='lightbox_title'>${$title}</h1>
                                 </div>
                                 <div id="lightbox-img">
