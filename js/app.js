@@ -16,10 +16,16 @@ export function start() {
     load = document.querySelector("#load_gallery");
     load.addEventListener("click", () => {
         if(!isLoad) {
-            gallery.init("2");
+            gallery.init(1);
             gallery.load();
             isLoad = true;
         }
+    });
+    document.querySelector("#previous").addEventListener("click", () => {
+       gallery.precedent(); 
+    });
+    document.querySelector("#next").addEventListener("click", () => {
+       gallery.suivant(); 
     });
     
 }
