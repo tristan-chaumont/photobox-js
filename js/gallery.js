@@ -3,7 +3,7 @@ import loader from './photoloader.js';
 import lightbox from './lightbox.js';
 //id de la page de la galerie à partir de 1 
 //let nombre d'images par page
-let nbImage = 6;
+let nbImage = 9;
 let idGalerie;
 let pageActu = "";
 //pagePrecedente
@@ -63,11 +63,14 @@ function insererDom(donnees){
         img.setAttribute("data-uri","https://webetu.iutnc.univ-lorraine.fr"+image.links.self.href);
         img.setAttribute("data-title", image.photo.titre);
         img.setAttribute("src","https://webetu.iutnc.univ-lorraine.fr"+image.photo.thumbnail.href);
+        img.setAttribute("data-id",i);
+        //on donne l'id de la vignette
         div.appendChild(img);
         div.appendChild(divNom);
         gal.appendChild(div);
         i++;
     }
+    //on ajoute le listener permettant de se mettre en plein écran (lightbox) aux différentes vignettes
     lightbox.lightbox_overview();
 }
     
