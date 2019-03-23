@@ -19,6 +19,7 @@ let show_erreur = function(){
 * charge la liste des images via l'uri fournie
 */
 let loadObjects = (uri) => {
+    console.log(uri);
     return axios.get(serveur + uri, {
         responseType: 'json',
         withCredentials: true

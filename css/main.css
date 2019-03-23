@@ -19,7 +19,6 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
@@ -133,11 +132,11 @@ nav #next {
     margin-top: auto;
     margin-bottom: auto;
     width: 100%;
-    height: 80%;
+    height: 60%;
 }
 
 #milieu p{
-    padding-top: 15%;
+    padding-top: 12%;
     height: 100%;
     font-weight: bold;
     font-size: 3em;
@@ -150,4 +149,10 @@ nav #next {
 
 .container{
     min-width: 100%;
+}
+
+#bottom{
+    color:white;
+    margin-top: 2%;
+    text-align: left;
 }
