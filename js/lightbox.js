@@ -46,6 +46,12 @@ let create_lightbox = (title, image) => {
            </div>`;
 }
 
+let display_info = ($vignette) => {
+    let informations = `<div id="informations">
+                            <div>
+                        </div>`;
+}
+
 export default {
     lightbox_overview: lightbox_overview
 }
