@@ -156,3 +156,8 @@ nav #next {
     margin-top: 2%;
     text-align: left;
 }
+
+.modal-backdrop {
+    position: static;
+    background-color: white;
+}

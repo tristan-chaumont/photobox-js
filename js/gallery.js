@@ -88,7 +88,6 @@ let precedent = () =>{
     if(idGalerie !=0){
         idGalerie--;
        pageActu=pagePrec;
-        console.log(pageActu)
        load(); 
     }
 }

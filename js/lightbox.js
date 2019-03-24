@@ -2,6 +2,7 @@
 https://www.blogduwebdesign.com/Tutoriel-make-simple-lightbox-minimaliste-javascript-html5
 */
 import loader from './photoloader.js';
+import gallery from './gallery.js';
 
 let lightbox_overview = () => {
     $(".vignette").on("click", function($event) {
@@ -18,16 +19,39 @@ function ajouterNextPrev($gallery,$lightbox_container,$id){
                 let $node =$(".vignette")[$id+1].firstChild;
                  requetes($gallery,$lightbox_container,$node,$id+1);
             }
+            else{
+                let promesse = new Promise(gallery.suivant);
+                console.log(promesse);
+                promesse.then(
+                    function(res){
+                            console.log("ON EST ICI");
+                            let $node =$(".vignette")[0].firstChild;
+                            $lightbox_container = $("<div id='lightbox_container'>").css("display", "none");
+                            $gallery = $('#gallery');
+                            requetes($gallery,$lightbox_container,$node,0);
+                    },
+                    function(error){console.log("probleme")}
+                    );
+                 console.log(promesse);
+            }
         });
         $("#precedent").on("click",function(){
             if($id!= 0){
                 let $node =$(".vignette")[$id-1].firstChild;
                 requetes($gallery,$lightbox_container,$node,$id-1);
-            }   
+            }
+            else {
+                gallery.precedent();
+                let $node =$(".vignette")[9].firstChild;
+                $lightbox_container = $("<div id='lightbox_container'>").css("display", "none");
+                $gallery = $('#gallery');
+                requetes($gallery,$lightbox_container,$node,9); 
+            }
         });
 }
 
 function requetes($gallery,$lightbox_container,$node,$id){
+    console.log($id);
      let promesse = loader.loadObjects($node.getAttributeNode("data-uri").value.substr(37));
                 promesse.then((rep) => {
                     let promesse2 = loader.loadObjects(rep.data.links.comments.href);
@@ -50,17 +74,45 @@ function requetes($gallery,$lightbox_container,$node,$id){
 }
 
 function donnerDiv ($image,$title,$photo,$comments){
-    console.log($comments);
     let comm ="";
     $comments.forEach(function(element){
         comm+=`<div class="col-3"><p>${element.titre} par : ${element.pseudo}</p><p>${element.content}</p></div>`;
     });
-    console.log(comm)
     let lightbox_div = `<div class="container w-100" id='lightbox'>
                                     <div class="row" id='lightbox-head'>
                                         <p class="col-1 btn btn-warning" id='lightbox_close'>X</p>
                                         <h1 class="col-8" id='lightbox_title'>${$title}</h1>
-                                        <p class="col-2 mr-1 btn btn-primary">ajouterCommentaire</p>
+                                        <button class="col-2 mr-1 btn btn-primary" data-toggle="modal" data-target="#myModal">ajouterCommentaire</button>
+                                        <!-- Formulaire comentaire-->
+                                        <div id="myModal" class="modal fade" role="dialog">
+                                              <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h4 class="modal-title">Ajouter un commentaire</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                     <form>
+                                                            <div class="col-12">
+                                                                <label for="pseudo">Pseudo:</label>
+                                                                <input type="text" name="pseudo" required>
+                                                            </div><div class="col-12">
+                                                                <label for="titre">Titre:</label>
+                                                                <input type="text" name="titre" required>
+                                                            </div><div class="col-12">
+                                                                <label for="comm">Commentaire:</label>
+                                                                <input type="text" name="comm" required>
+                                                            </div><div class="col-12">
+                                                                <input class=" btn btn-success" type="submit" value="poster">
+                                                            </div>
+                                                    </form>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
                                     </div>
                                     <div class="row" id = "milieu">
                                         <p class="col-2 btn btn-info"id="precedent"><</p>
